@@ -1,3 +1,6 @@
+const screen = document.querySelector('#screen');
+const calculatorItems = document.querySelectorAll('.calculator-item');
+
 const add = function(a,b){
     console.log(a + b);
     return a + b;
@@ -38,5 +41,5 @@ const operate = function(num1,num2,operator){
     }
 }
 
-operate(22,2,'/');
+
 
