@@ -41,7 +41,12 @@ const operate = function(num1,num2,operator){
         case'multiply-btn':
             return  multiply(num1,num2);
         case'divide-btn':
+        if(num1 == 0 || num2 == 0){
+            return "Can't divide by 0"
+        }else{
             return divide(num1,num2);
+        }
+            
     }
 }
 
