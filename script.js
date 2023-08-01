@@ -30,18 +30,18 @@ let operator;
 let num2 = '';
 
 const operate = function(num1,num2,operator){
+    num1 = Number.parseInt(num1);
+    num2 = Number.parseInt(num2);
+
     switch(operator){
-        case '+':
-            add(num1,num2);
-            break;
-        case'-':
-            subtract(num1,num2);
-            break;
-        case'x':
-            multiply(num1,num2);
-            break;
-        case'/':
-            divide(num1,num2);
+        case 'add-btn':
+            return add(num1,num2);
+        case'subtract-btn':
+            return subtract(num1,num2);
+        case'multiply-btn':
+            return  multiply(num1,num2);
+        case'divide-btn':
+            return divide(num1,num2);
     }
 }
 
@@ -50,9 +50,19 @@ const operate = function(num1,num2,operator){
 const getResults = function(e){
 
     if(operator){
-        num2 += e.target.id;
-        screen.innerText = num2;
-        console.log(num1,num2);
+
+        if(e.target.id == '1' || e.target.id == '2' || e.target.id == '3' || e.target.id == '4'
+        || e.target.id == '5' || e.target.id == '6' || e.target.id == '7' || e.target.id == '8'
+        ||e.target.id == '9'){
+            num2 += e.target.id;
+            screen.innerText = num2;
+        }else if(e.target.id == 'equal-btn'){
+            screen.innerText = operate(num1,num2,operator);
+            num1 = '';
+            num2 = '';
+            operator = undefined;
+            
+        }
     }
 
     if(!operator){
@@ -67,6 +77,8 @@ const getResults = function(e){
             operator = e.target.id;
         }
     }
+
+    
     
 
   
