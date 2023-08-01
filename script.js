@@ -56,11 +56,18 @@ const getResults = function(e){
         ||e.target.id == '9'){
             num2 += e.target.id;
             screen.innerText = num2;
+
+        }else if(e.target.id == 'add-btn' || e.target.id == 'subtract-btn' ||
+        e.target.id == 'multiply-btn' || e.target.id == 'divide-btn'){
+            screen.innerText = operate(num1,num2,operator);
+            num1 = operate(num1,num2,operator);
+            num2 = '';
+            operator = e.target.id;
         }else if(e.target.id == 'equal-btn'){
             screen.innerText = operate(num1,num2,operator);
             num1 = '';
             num2 = '';
-            operator = undefined;
+            operator = '';
             
         }
     }
@@ -76,6 +83,13 @@ const getResults = function(e){
         e.target.id == 'multiply-btn' || e.target.id == 'divide-btn'){
             operator = e.target.id;
         }
+    }
+
+    if(e.target.id == 'clear-btn'){
+        num1 = '';
+        num2 = '';
+        operator = '';
+        screen.innerText = 0;
     }
 
     
