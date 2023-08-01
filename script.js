@@ -51,14 +51,11 @@ const getResults = function(e){
 
     if(operator){
 
-        if(e.target.id == '1' || e.target.id == '2' || e.target.id == '3' || e.target.id == '4'
-        || e.target.id == '5' || e.target.id == '6' || e.target.id == '7' || e.target.id == '8'
-        ||e.target.id == '9'){
+        if(e.target.classList.contains('number')){
             num2 += e.target.id;
             screen.innerText = num2;
 
-        }else if(e.target.id == 'add-btn' || e.target.id == 'subtract-btn' ||
-        e.target.id == 'multiply-btn' || e.target.id == 'divide-btn'){
+        }else if(e.target.classList.contains('operator')){
             screen.innerText = operate(num1,num2,operator);
             num1 = operate(num1,num2,operator);
             num2 = '';
@@ -74,13 +71,10 @@ const getResults = function(e){
 
     if(!operator){
 
-        if(e.target.id == '1' || e.target.id == '2' || e.target.id == '3' || e.target.id == '4'
-        || e.target.id == '5' || e.target.id == '6' || e.target.id == '7' || e.target.id == '8'
-        ||e.target.id == '9'){
+        if(e.target.classList.contains('number')){
             num1 += e.target.id;
             screen.innerText = num1;
-        }else if(e.target.id == 'add-btn' || e.target.id == 'subtract-btn' ||
-        e.target.id == 'multiply-btn' || e.target.id == 'divide-btn'){
+        }else if(e.target.classList.contains('operator')){
             operator = e.target.id;
         }
     }
