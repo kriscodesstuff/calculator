@@ -4,23 +4,20 @@ const calculatorItems = document.querySelectorAll('.calculator-item');
 
 
 const add = function(a,b){
-    console.log(a + b);
     return a + b;
 }
 
 const subtract = function(a,b){
-    console.log(a - b);
     return a - b;
 }
 
 const multiply = function(a,b){
-    console.log(a * b);
     return a * b;
 }
 
 const divide = function(a,b){
-    console.log(a / b);
-    return a / b;
+    const result = a / b;
+    return  Math.round(result * 100) / 100;
 }
 
 
@@ -66,11 +63,7 @@ const getResults = function(e){
             num2 = '';
             operator = e.target.id;
         }else if(e.target.id == 'equal-btn'){
-            screen.innerText = operate(num1,num2,operator);
-            num1 = '';
-            num2 = '';
-            operator = '';
-            
+            screen.innerText = operate(num1,num2,operator); 
         }
     }
 
@@ -79,7 +72,7 @@ const getResults = function(e){
         if(e.target.classList.contains('number')){
             num1 += e.target.id;
             screen.innerText = num1;
-        }else if(e.target.classList.contains('operator')){
+        }else if(e.target.classList.contains('operator') && num1){
             operator = e.target.id;
         }
     }
