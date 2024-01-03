@@ -31,13 +31,13 @@ const operate = function(num1,num2,operator){
     num2 = Number.parseInt(num2);
 
     switch(operator){
-        case 'add-btn':
+        case '+':
             return add(num1,num2);
-        case'subtract-btn':
+        case'-':
             return subtract(num1,num2);
-        case'multiply-btn':
+        case'x':
             return  multiply(num1,num2);
-        case'divide-btn':
+        case'/':
         if(num1 == 0 || num2 == 0){
             return "Can't divide by 0"
         }else{
@@ -55,7 +55,7 @@ const getResults = function(e){
 
         if(e.target.classList.contains('number')){
             num2 += e.target.id;
-            screen.innerText = num2;
+            screen.innerText = `${num2}`;
 
         }else if(e.target.classList.contains('operator')){
             screen.innerText = operate(num1,num2,operator);
@@ -64,6 +64,9 @@ const getResults = function(e){
             operator = e.target.id;
         }else if(e.target.id == 'equal-btn'){
             screen.innerText = operate(num1,num2,operator); 
+            num1 = '';
+            num2 = '';
+            operator = '';
         }
     }
 
@@ -74,6 +77,8 @@ const getResults = function(e){
             screen.innerText = num1;
         }else if(e.target.classList.contains('operator') && num1){
             operator = e.target.id;
+            screen.innerText = `${num1}`
+
         }
     }
 
