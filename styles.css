@@ -57,3 +57,34 @@ body{
 #equal-btn{
     border-radius: 0px 0px 10px 0px;
 }
+
+
+@media (max-width: 768px){
+    #calculator, #screen{
+        width: 400px;
+    }
+}
+
+@media (max-width: 425px){
+    #calculator, #screen{
+        width: 300px;
+    }
+
+    #calculator{
+        height: 300px;
+    }
+}
+
+@media (max-width: 320px){
+    #calculator, #screen{
+        width: 200px;
+    }
+
+    #calculator{
+        height: 200px;
+    }
+
+    #screen{
+        height: 60px;
+    }
+}
