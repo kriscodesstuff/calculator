@@ -58,10 +58,10 @@ const getResults = function(e){
             screen.innerText = `${num2}`;
 
         }else if(e.target.classList.contains('operator')){
-            screen.innerText = operate(num1,num2,operator);
             num1 = operate(num1,num2,operator);
             num2 = '';
             operator = e.target.id;
+            screen.innerText = `${num1} ${operator}`
         }else if(e.target.id == 'equal-btn'){
             screen.innerText = operate(num1,num2,operator); 
             num1 = '';
@@ -77,7 +77,7 @@ const getResults = function(e){
             screen.innerText = num1;
         }else if(e.target.classList.contains('operator') && num1){
             operator = e.target.id;
-            screen.innerText = `${num1}`
+            screen.innerText = `${num1} ${operator}`
 
         }
     }
